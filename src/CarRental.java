@@ -33,6 +33,7 @@ public class CarRental {
             if (!color.isBlank() && !cars[i].color.toLowerCase().replaceAll("\\s+", "").equals(color.toLowerCase().replaceAll("\\s+", "")))
                 filtered.remove(cars[i]);
         }
+
         return filtered;
     }
 
@@ -46,5 +47,14 @@ public class CarRental {
             return true;
         }
         return false;
+    }
+
+    public boolean returnCar(Car car) {
+        return rentedCars.remove(car);
+    }
+
+    public void printCars() {
+        for (int i = 0; i < cars.length; i++)
+            System.out.printf("ID: [%d]\t|\t%s\t|\t%s\t|\t%s\n", i, cars[i].brand, cars[i].name, cars[i].color);
     }
 }
